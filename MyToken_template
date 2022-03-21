@@ -1,0 +1,38 @@
+pragma solidity ^0.5.16;
+ 
+contract MyToken_template {
+
+    string public name = "Alex";  
+    
+    string public symbol = "AT";
+
+    uint8 public constant decimals = 18;
+   
+    uint _totalSupply = 10000e18;
+
+    mapping(address => uint) public _balanceOf;
+    mapping(address => mapping(address => uint256)) public _allowance;
+    
+    event   Transfer(address indexed _from, address indexed _to, uint tokens);
+    
+    constructor() public {
+        _balanceOf[msg.sender] = _totalSupply;
+    }
+
+    function totalSupply() external view returns (uint){
+           return _totalSupply;
+    }
+
+    function balanceOf(address account) external view returns (uint){
+            return _balanceOf[account];
+    }
+
+    function transfer(address _to, uint256 _value) public returns(bool success){
+        require(_balanceOf[msg.sender] >= _value);
+        _balanceOf[msg.sender] -= _value;
+        _balanceOf[_to] += _value;
+        emit Transfer(msg.sender, _to, _value);   
+        return true;
+    }
+
+}
