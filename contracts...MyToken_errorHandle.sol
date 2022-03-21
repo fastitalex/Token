@@ -16,14 +16,6 @@ contract MyToken_errorHanle {
         balance[to] += value; 
     }
 
-/*
-    function swap() public payable{
-        owner.transfer(msg.value);
-        uint swapAmount = msg.value *10 / 1 ether;
-        balance[owner] -= swapAmount;
-        balance[msg.sender] += swapAmount; 
-        
-    }
-*/
+
 }
 
