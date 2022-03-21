@@ -1,12 +1,9 @@
 pragma solidity ^0.5.0;
 
-import "hardhat/console.sol";
-
 library SafeMath {
 
     function add(uint256 a, uint256 b) internal view returns (uint256) {
       uint256 c = a + b;
-      console.log("c:", c);
       assert(c >= a);  // check overflow 
       return c;
     }
